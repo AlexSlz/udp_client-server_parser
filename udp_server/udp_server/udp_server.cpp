@@ -223,11 +223,6 @@ int main(int argc, char* argv[])
 
     bind(Socket, (sockaddr*)&local_addr, sizeof(local_addr));
 
-    char test[] = "draw pixel 1 1 1 1 1\n";
-
-
-    cout << parseCommand(test, 0);
-
     while (1)
     {
         int client_addr_size = sizeof(client_addr);

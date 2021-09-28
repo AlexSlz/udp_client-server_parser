@@ -2,10 +2,10 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>E:\Lab 2.0\udp_server\Debug\udp_server.exe</FullPath>
+      <FullPath>E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\Debug\udp_server.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>E:\Lab 2.0\udp_server\Debug\UnitTest.dll</FullPath>
+      <FullPath>E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\Debug\UnitTest.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
