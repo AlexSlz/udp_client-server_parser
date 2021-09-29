@@ -18,56 +18,60 @@ namespace UnitTest
 		const char* test = parseCommand(command, 0);
 		Assert::AreEqual(test, "Command not found!\n");
 	}
+	void limitTest(char command[]) {
+		const char* test = parseCommand(command, 0);
+		Assert::AreEqual(test, "Exceeding limits!\n");
+	}
 	TEST_CLASS(UnitTest)
 	{
 	public:
 		TEST_METHOD(ClearCommand)
 		{
-			commandOkTest("clear display 255 255 255");
+			commandOkTest("clear display (255 255 255)");
 		}
 		TEST_METHOD(PixelCommand)
 		{
-			commandOkTest("draw pixel 1 1 255 255 255");
+			commandOkTest("draw pixel 1 1 (255 255 255)");
 		}
 		TEST_METHOD(LineCommand)
 		{
-			commandOkTest("draw line 1 1 2 2 255 255 255");
+			commandOkTest("draw line 1 1 2 2 (255 255 255)");
 		}
 		TEST_METHOD(drawRectCommand)
 		{
-			commandOkTest("draw rectangle 1 1 10 10 255 255 255");
+			commandOkTest("draw rectangle 1 1 10 10 (255 255 255)");
 		}
 		TEST_METHOD(fillRectCommand)
 		{
-			commandOkTest("fill rectangle 1 1 10 10 255 255 255");
+			commandOkTest("fill rectangle 1 1 10 10 (255 255 255)");
 		}
 		TEST_METHOD(drawEllipseCommand)
 		{
-			commandOkTest("draw ellipse 1 1 10 10 255 255 255");
+			commandOkTest("draw ellipse 1 1 10 10 (255 255 255)");
 		}
 		TEST_METHOD(fillEllipseCommand)
 		{
-			commandOkTest("fill ellipse 1 1 10 10 255 255 255");
+			commandOkTest("fill ellipse 1 1 10 10 (255 255 255)");
 		}
 		TEST_METHOD(dCircleCommand)
 		{
-			commandOkTest("draw circle 1 1 10 255 255 255");
+			commandOkTest("draw circle 1 1 10 (255 255 255)");
 		}
 		TEST_METHOD(fCircleCommand)
 		{
-			commandOkTest("fill circle 1 1 10 255 255 255");
+			commandOkTest("fill circle 1 1 10 (255 255 255)");
 		}
 		TEST_METHOD(drawRoundedRectangleCommand)
 		{
-			commandOkTest("draw rounded rectangle 1 1 20 20 10 255 255 255");
+			commandOkTest("draw rounded rectangle 1 1 20 20 10 (255 255 255)");
 		}
 		TEST_METHOD(fillRoundedRectangleCommand)
 		{
-			commandOkTest("fill rounded rectangle 1 1 20 20 10 255 255 255");
+			commandOkTest("fill rounded rectangle 1 1 20 20 10 (255 255 255)");
 		}
 		TEST_METHOD(drawTextCommand)
 		{
-			commandOkTest("draw text 1 1 255 255 255 10 5 hello");
+			commandOkTest("draw text 1 1 (255 255 255) 10 5 hello");
 		}
 		TEST_METHOD(drawImageCommand)
 		{
@@ -88,7 +92,7 @@ namespace UnitTest
 
 		TEST_METHOD(NeedMoreParams)
 		{
-			commandNeedTest("draw pixel 1 1 1 1");
+			commandNeedTest("draw pixel 1");
 		}
 		TEST_METHOD(NotFound)
 		{
@@ -96,11 +100,19 @@ namespace UnitTest
 		}
 		TEST_METHOD(WrongParams)
 		{
-			commandNeedTest("draw circle one two thre 4 5 6 7");
+			commandNeedTest("draw circle one two thre 4");
 		}
 		TEST_METHOD(ZeroParams)
 		{
 			commandNeedTest("draw circle");
+		}
+		TEST_METHOD(intLimit)
+		{
+			limitTest("draw circle 101");
+		}
+		TEST_METHOD(colorLimit)
+		{
+			limitTest("draw circle (266 265 264)");
 		}
 	};
 }

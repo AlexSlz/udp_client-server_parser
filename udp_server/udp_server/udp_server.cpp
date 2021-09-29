@@ -11,11 +11,11 @@ using namespace std;
 
 class Command {
 public:
-    void (*f) (int, INT16[], string);
+    void (*f) (int, INT16[], INT16[], string);
     string name[99];
     int nameCount = 0;
     int reqParamNum = 0;
-    Command(void(*f_0)(int, INT16[], string), int paramNum, int count, const char* text, ...) {
+    Command(void(*f_0)(int, INT16[], INT16[], string), int paramNum, int count, const char* text, ...) {
         const char ** s = &text;
         for (size_t i = 0; i < count; i++, s++)
         {
@@ -27,92 +27,92 @@ public:
 
     }
 };
-void displayParams(int count, INT16 params[]) {
+void displayParams(int count, INT16 params[], INT16 color[]) {
     cout << "Parameters\n";
     for (size_t i = 0; i < count; i++)
     {
         cout << params[i] << "\n";
     }
 }
-void clearDisplay(int paramCount, INT16 parameters[], string text) {
+void clearDisplay(int paramCount, INT16 parameters[], INT16 color[], string text) {
     cout << "Command clear\n";
-    displayParams(paramCount, parameters);
+    displayParams(paramCount, parameters, color);
 }
-void drawPixel(int paramCount, INT16 parameters[], string text) {
+void drawPixel(int paramCount, INT16 parameters[], INT16 color[], string text) {
     cout << "Command draw Pixel\n";
-    displayParams(paramCount, parameters);
+    displayParams(paramCount, parameters, color);
 }
-void drawLine(int paramCount, INT16 parameters[], string text) {
+void drawLine(int paramCount, INT16 parameters[], INT16 color[], string text) {
     cout << "Command draw Line\n";
-    displayParams(paramCount, parameters);
+    displayParams(paramCount, parameters, color);
 }
-void drawRect(int paramCount, INT16 parameters[], string text) {
+void drawRect(int paramCount, INT16 parameters[], INT16 color[], string text) {
     cout << "Command draw Rectangle\n";
-    displayParams(paramCount, parameters);
+    displayParams(paramCount, parameters, color);
 }
-void fillRect(int paramCount, INT16 parameters[], string text) {
+void fillRect(int paramCount, INT16 parameters[], INT16 color[], string text) {
     cout << "Command fill Rectangle\n";
-    displayParams(paramCount, parameters);
+    displayParams(paramCount, parameters, color);
 }
-void drawEllipse(int paramCount, INT16 parameters[], string text) {
+void drawEllipse(int paramCount, INT16 parameters[], INT16 color[], string text) {
     cout << "Command draw Ellipse\n";
-    displayParams(paramCount, parameters);
+    displayParams(paramCount, parameters, color);
 }
-void fillEllipse(int paramCount, INT16 parameters[], string text) {
+void fillEllipse(int paramCount, INT16 parameters[], INT16 color[], string text) {
     cout << "Command fill Ellipse\n";
-    displayParams(paramCount, parameters);
+    displayParams(paramCount, parameters, color);
 }
-void drawCircle(int paramCount, INT16 parameters[], string text) {
+void drawCircle(int paramCount, INT16 parameters[], INT16 color[], string text) {
     cout << "Command draw Circle\n";
-    displayParams(paramCount, parameters);
+    displayParams(paramCount, parameters, color);
 }
-void fillCircle(int paramCount, INT16 parameters[], string text) {
+void fillCircle(int paramCount, INT16 parameters[], INT16 color[], string text) {
     cout << "Command fill Circle\n";
-    displayParams(paramCount, parameters);
+    displayParams(paramCount, parameters, color);
 }
-void drawRoundRect(int paramCount, INT16 parameters[], string text) {
+void drawRoundRect(int paramCount, INT16 parameters[], INT16 color[], string text) {
     cout << "Command draw rounded rectangle\n";
-    displayParams(paramCount, parameters);
+    displayParams(paramCount, parameters, color);
 }
-void fillRoundRect(int paramCount, INT16 parameters[], string text) {
+void fillRoundRect(int paramCount, INT16 parameters[], INT16 color[], string text) {
     cout << "Command fill rounded rectangle\n";
-    displayParams(paramCount, parameters);
+    displayParams(paramCount, parameters, color);
 }
-void drawText(int paramCount, INT16 parameters[], string text) {
+void drawText(int paramCount, INT16 parameters[], INT16 color[], string text) {
     cout << "Command draw Text\n";
-    displayParams(paramCount, parameters);
+    displayParams(paramCount, parameters, color);
 }
-void drawImage(int paramCount, INT16 parameters[], string text) {
+void drawImage(int paramCount, INT16 parameters[], INT16 color[], string text) {
     cout << "Command draw Image\n";
-    displayParams(paramCount, parameters);
+    displayParams(paramCount, parameters, color);
 }
-void setOrientation(int paramCount, INT16 parameters[], string text) {
+void setOrientation(int paramCount, INT16 parameters[], INT16 color[], string text) {
     cout << "Command set Orientation\n";
-    displayParams(paramCount, parameters);
+    displayParams(paramCount, parameters, color);
 }
-void getWidth(int paramCount, INT16 parameters[], string text) {
+void getWidth(int paramCount, INT16 parameters[], INT16 color[], string text) {
     cout << "Command get Width\n";
 }
-void getHeight(int paramCount, INT16 parameters[], string text) {
+void getHeight(int paramCount, INT16 parameters[], INT16 color[], string text) {
     cout << "Command get Height\n";
 }
-void getHelp(int paramCount, INT16 parameters[], string text);
-void clearConsole(int paramCount, INT16 parameters[], string text) {
+void getHelp(int paramCount, INT16 parameters[], INT16 color[], string text);
+void clearConsole(int paramCount, INT16 parameters[], INT16 color[], string text) {
     system("CLS");
 }
 Command commands[] = {
-    Command(clearDisplay, 3, 2, "clear", "display"),
-    Command(drawPixel, 5, 2, "draw", "pixel"),
-    Command(drawLine, 7, 2, "draw", "line"),
-    Command(drawRect, 7, 2, "draw", "rectangle"),
-    Command(fillRect, 7, 2, "fill", "rectangle"),
-    Command(drawEllipse, 7, 2, "draw", "ellipse"),
-    Command(fillEllipse, 7, 2, "fill", "ellipse"),
-    Command(drawCircle, 6, 2, "draw", "circle"),
-    Command(fillCircle, 6, 2, "fill", "circle"),
-    Command(drawRoundRect, 8, 3, "draw", "rounded", "rectangle"),
-    Command(fillRoundRect, 8, 3, "fill", "rounded", "rectangle"),
-    Command(drawText, 7, 2, "draw", "text"),
+    Command(clearDisplay, 0, 2, "clear", "display"),
+    Command(drawPixel, 2, 2, "draw", "pixel"),
+    Command(drawLine, 4, 2, "draw", "line"),
+    Command(drawRect, 4, 2, "draw", "rectangle"),
+    Command(fillRect, 4, 2, "fill", "rectangle"),
+    Command(drawEllipse, 4, 2, "draw", "ellipse"),
+    Command(fillEllipse, 4, 2, "fill", "ellipse"),
+    Command(drawCircle, 3, 2, "draw", "circle"),
+    Command(fillCircle, 3, 2, "fill", "circle"),
+    Command(drawRoundRect, 5, 3, "draw", "rounded", "rectangle"),
+    Command(fillRoundRect, 5, 3, "fill", "rounded", "rectangle"),
+    Command(drawText, 4, 2, "draw", "text"),
     Command(drawImage, 4, 2, "draw", "image"),
     Command(setOrientation, 1, 2, "set", "orientation"),
     Command(getWidth, 0, 2, "get", "width"),
@@ -121,7 +121,7 @@ Command commands[] = {
     Command(getHelp, 0, 1, "help"),
     Command(clearConsole, 0, 1, "cls")
 };
-void getHelp(int paramCount, INT16 parameters[], string text) {
+void getHelp(int paramCount, INT16 parameters[], INT16 color[], string text) {
     for (size_t i = 0; i < sizeof(commands) / sizeof(*commands); i++)
     {
         for (size_t j = 0; j < commands[i].nameCount; j++)
@@ -147,6 +147,9 @@ const char * parseCommand(char buff[], int bsize) {
     int w = 0;
 
     INT16* params = new INT16[99];
+    INT16* color = new INT16[99];
+    int colorS = -1, colorE = -1;
+    int colorC = 0;
     int paramsCount = 0;
 
     char n[] = { '\n', ' ', ',', '(', ')', ':'};
@@ -158,6 +161,12 @@ const char * parseCommand(char buff[], int bsize) {
             if (n[j] == buff[i]) {
                 o = true;
                 w++;
+                if (buff[i] == '(') {
+                    colorS = w;
+                }
+                if (buff[i] == ')') {
+                    colorE = w;
+                }
                 break;
             }
         }
@@ -169,8 +178,20 @@ const char * parseCommand(char buff[], int bsize) {
     {
         try
         {
-            params[paramsCount] = stoi(wordArray[i]);
-            paramsCount++;
+            if (i >= colorS && i <= colorE) {
+                if (stoi(wordArray[i]) > 255 || stoi(wordArray[i]) < 0) {
+                    return "Exceeding limits!\n";
+                }
+                color[colorC] = stoi(wordArray[i]);
+                colorC++;
+            }
+            else {
+                if (stoi(wordArray[i]) > 100 || stoi(wordArray[i]) < 0) {
+                    return "Exceeding limits!\n";
+                }
+                params[paramsCount] = stoi(wordArray[i]);
+                paramsCount++;
+            }
         }
         catch (const exception&)
         {
@@ -187,7 +208,7 @@ const char * parseCommand(char buff[], int bsize) {
         }
         if (commands[i].nameCount == t) {
             if (paramsCount >= commands[i].reqParamNum) {
-                    commands[i].f(paramsCount, params, wordArray[w]);
+                    commands[i].f(paramsCount, params, color, wordArray[w]);
                 return "Command Work!\n";
             }
             else {
