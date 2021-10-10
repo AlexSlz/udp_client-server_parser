@@ -3,30 +3,12 @@
 #include <winsock2.h>
 #include <windows.h>
 #include <iostream>
-#include <string>
+#include "server.h"
 
 #define PORT 7777    // порт сервера
 
 using namespace std;
 
-class Command {
-public:
-    void (*f) (int, INT16[], INT16[], string);
-    string name[99];
-    int nameCount = 0;
-    int reqParamNum = 0;
-    Command(void(*f_0)(int, INT16[], INT16[], string), int paramNum, int count, const char* text, ...) {
-        const char ** s = &text;
-        for (size_t i = 0; i < count; i++, s++)
-        {
-            name[i] = (*s);
-        }
-        nameCount = count;
-        reqParamNum = paramNum;
-        f = f_0;
-
-    }
-};
 void displayParams(int count, INT16 params[], INT16 color[]) {
     cout << "Parameters\n";
     for (size_t i = 0; i < count; i++)
@@ -96,31 +78,10 @@ void getWidth(int paramCount, INT16 parameters[], INT16 color[], string text) {
 void getHeight(int paramCount, INT16 parameters[], INT16 color[], string text) {
     cout << "Command get Height\n";
 }
-void getHelp(int paramCount, INT16 parameters[], INT16 color[], string text);
 void clearConsole(int paramCount, INT16 parameters[], INT16 color[], string text) {
     system("CLS");
 }
-Command commands[] = {
-    Command(clearDisplay, 0, 2, "clear", "display"),
-    Command(drawPixel, 2, 2, "draw", "pixel"),
-    Command(drawLine, 4, 2, "draw", "line"),
-    Command(drawRect, 4, 2, "draw", "rectangle"),
-    Command(fillRect, 4, 2, "fill", "rectangle"),
-    Command(drawEllipse, 4, 2, "draw", "ellipse"),
-    Command(fillEllipse, 4, 2, "fill", "ellipse"),
-    Command(drawCircle, 3, 2, "draw", "circle"),
-    Command(fillCircle, 3, 2, "fill", "circle"),
-    Command(drawRoundRect, 5, 3, "draw", "rounded", "rectangle"),
-    Command(fillRoundRect, 5, 3, "fill", "rounded", "rectangle"),
-    Command(drawText, 4, 2, "draw", "text"),
-    Command(drawImage, 4, 2, "draw", "image"),
-    Command(setOrientation, 1, 2, "set", "orientation"),
-    Command(getWidth, 0, 2, "get", "width"),
-    Command(getHeight, 0, 2, "get", "height"),
 
-    Command(getHelp, 0, 1, "help"),
-    Command(clearConsole, 0, 1, "cls")
-};
 void getHelp(int paramCount, INT16 parameters[], INT16 color[], string text) {
     for (size_t i = 0; i < sizeof(commands) / sizeof(*commands); i++)
     {
@@ -135,7 +96,7 @@ void getHelp(int paramCount, INT16 parameters[], INT16 color[], string text) {
 SOCKET Socket;
 sockaddr_in client_addr;
 
-void sendToServer(const char * text) {
+void sendToClient(const char * text) {
     sendto(Socket, text, strlen(text), 0, (sockaddr*)&client_addr, sizeof(client_addr));
 }
 
@@ -219,24 +180,20 @@ const char * parseCommand(char buff[], int bsize) {
     return "Command not found!\n";
 }
 
-
-int main(int argc, char* argv[])
-{
+string StartServer() {
     char buff[1024];
     if (WSAStartup(0x202, (WSADATA*)&buff[0]))
     {
-        cout << "WSAStartup error: %d\n", WSAGetLastError();
-        return -1;
+        return "WSAStartup error!";
     };
 
     Socket = socket(AF_INET, SOCK_DGRAM, 0);
     if (Socket == INVALID_SOCKET)
     {
-        cout << "Socket() error: %d\n", WSAGetLastError();
         WSACleanup();
-        return -1;
+        return "Socket error!";
     };
- 
+
     sockaddr_in local_addr;
     local_addr.sin_family = AF_INET;
     local_addr.sin_addr.s_addr = INADDR_ANY;
@@ -256,12 +213,22 @@ int main(int argc, char* argv[])
 
         buff[bsize] = 0;
 
-        const char * req = parseCommand(buff, bsize);
-        sendToServer(req);
+        const char* req = parseCommand(buff, bsize);
+        sendToClient(req);
 
 
         printf("%s [%s:%d]: %s", (hst) ? hst->h_name : "Unknown host", inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port), &buff[0]);
 
     }
-    return 0;
+}
+
+int main(int argc, char* argv[])
+{
+    //initwindow(500, 500, "server");
+    
+    //setcolor(COLOR(255, 0, 0));
+    //line(100, 100, 200, 200);
+    //getch();
+    cout << StartServer() << endl;
+
 }

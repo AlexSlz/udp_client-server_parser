@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "udp_server", "udp_server\ud
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "UnitTest\UnitTest.vcxproj", "{DDD9979E-B7C7-47CC-B10B-674B6F02897B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "winForm", "winForm\winForm.vcxproj", "{1E030B04-B7CE-4596-B615-229594A17621}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{DDD9979E-B7C7-47CC-B10B-674B6F02897B}.Release|x64.Build.0 = Release|x64
 		{DDD9979E-B7C7-47CC-B10B-674B6F02897B}.Release|x86.ActiveCfg = Release|Win32
 		{DDD9979E-B7C7-47CC-B10B-674B6F02897B}.Release|x86.Build.0 = Release|Win32
+		{1E030B04-B7CE-4596-B615-229594A17621}.Debug|x64.ActiveCfg = Debug|x64
+		{1E030B04-B7CE-4596-B615-229594A17621}.Debug|x64.Build.0 = Debug|x64
+		{1E030B04-B7CE-4596-B615-229594A17621}.Debug|x86.ActiveCfg = Debug|Win32
+		{1E030B04-B7CE-4596-B615-229594A17621}.Debug|x86.Build.0 = Debug|Win32
+		{1E030B04-B7CE-4596-B615-229594A17621}.Release|x64.ActiveCfg = Release|x64
+		{1E030B04-B7CE-4596-B615-229594A17621}.Release|x64.Build.0 = Release|x64
+		{1E030B04-B7CE-4596-B615-229594A17621}.Release|x86.ActiveCfg = Release|Win32
+		{1E030B04-B7CE-4596-B615-229594A17621}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

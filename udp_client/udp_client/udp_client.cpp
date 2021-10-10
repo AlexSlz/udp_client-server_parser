@@ -3,11 +3,13 @@
 #include <winsock2.h>
 #include <windows.h>
 #include <iostream>
+#include <thread>
 
 #define PORT 7777
 #define SERVERADDR "127.0.0.1"
 
 using namespace std;
+
 
 int main(int argc, char* argv[])
 {

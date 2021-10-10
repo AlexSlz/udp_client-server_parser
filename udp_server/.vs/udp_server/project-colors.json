@@ -15,7 +15,12 @@
       "ProjectGuid": "ddd9979e-b7c7-47cc-b10b-674b6f02897b",
       "DisplayName": "UnitTest",
       "ColorIndex": 1
+    },
+    "1e030b04-b7ce-4596-b615-229594a17621": {
+      "ProjectGuid": "1e030b04-b7ce-4596-b615-229594a17621",
+      "DisplayName": "winForm",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 3
 }

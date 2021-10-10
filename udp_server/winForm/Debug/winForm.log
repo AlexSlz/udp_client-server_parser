@@ -1,0 +1,17 @@
+﻿  func.cpp
+E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\serverH.h(20,30): warning C4018: <: несоответствие типов со знаком и без знака
+E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\func.cpp(24,26): warning C4018: <: несоответствие типов со знаком и без знака
+E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\func.cpp(103,26): warning C4018: <: несоответствие типов со знаком и без знака
+E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\func.cpp(147,26): warning C4018: <: несоответствие типов со знаком и без знака
+E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\func.cpp(150,30): warning C4018: <: несоответствие типов со знаком и без знака
+E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\serverH.h(18): warning C4793: Command::Command: функция скомпилирована как машинная:
+  	varargs не поддерживаются в /clr
+  MyForm.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
+bgi.lib(winthread.obj) : warning LNK4075: не учитывается "/EDITANDCONTINUE" из-за спецификации "/INCREMENTAL:NO"
+bgi.lib(dibutil.obj) : warning LNK4099: "bgi.pdb" PDB не найден с "bgi.lib(dibutil.obj)" или на "E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\Debug\bgi.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
+bgi.lib(drawing.obj) : warning LNK4099: "bgi.pdb" PDB не найден с "bgi.lib(drawing.obj)" или на "E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\Debug\bgi.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
+bgi.lib(file.obj) : warning LNK4099: "bgi.pdb" PDB не найден с "bgi.lib(file.obj)" или на "E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\Debug\bgi.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
+bgi.lib(misc.obj) : warning LNK4099: "bgi.pdb" PDB не найден с "bgi.lib(misc.obj)" или на "E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\Debug\bgi.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
+bgi.lib(winbgi.obj) : warning LNK4099: "bgi.pdb" PDB не найден с "bgi.lib(winbgi.obj)" или на "E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\Debug\bgi.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
+bgi.lib(winthread.obj) : warning LNK4099: "bgi.pdb" PDB не найден с "bgi.lib(winthread.obj)" или на "E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\Debug\bgi.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
+  winForm.vcxproj -> E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\Debug\winForm.exe
