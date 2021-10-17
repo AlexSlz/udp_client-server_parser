@@ -63,6 +63,7 @@ void fillRoundRect(int paramCount, INT16 parameters[], INT16 color[], string tex
 void drawText(int paramCount, INT16 parameters[], INT16 color[], string text) {
     cout << "Command draw Text\n";
     displayParams(paramCount, parameters, color);
+    cout << text << endl;
 }
 void drawImage(int paramCount, INT16 parameters[], INT16 color[], string text) {
     cout << "Command draw Image\n";
@@ -158,6 +159,10 @@ const char * parseCommand(char buff[], int bsize) {
         {
         }
     }
+    for (size_t i = 0; i < w; i++)
+    {
+        cout << i << " / " << w << " | w: " << wordArray[i] << endl;
+    }
     for (size_t i = 0; i < sizeof(commands) / sizeof(*commands); i++)
     {
         int t = 0;
@@ -169,7 +174,7 @@ const char * parseCommand(char buff[], int bsize) {
         }
         if (commands[i].nameCount == t) {
             if (paramsCount >= commands[i].reqParamNum) {
-                    commands[i].f(paramsCount, params, color, wordArray[w]);
+                    commands[i].f(paramsCount, params, color, wordArray[w - 1]);
                 return "Command Work!\n";
             }
             else {

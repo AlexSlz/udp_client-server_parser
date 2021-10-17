@@ -2,6 +2,9 @@
 #include "serverH.h"
 #include <cstdio>
 
+int height = 500, width = 500;
+
+
 namespace winForm {
 
 	using namespace System;
@@ -11,7 +14,6 @@ namespace winForm {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
 
 	/// <summary>
 	/// Сводка для MyForm
@@ -27,7 +29,7 @@ namespace winForm {
 				listBox1->Items->Add(gcnew String(getCommandsName(i).c_str()));
 			}
 			myServerThread = gcnew Thread(gcnew ThreadStart(this, &MyForm::ThreadStartServer));
-			initwindow(300, 300, "drawBox");
+			initwindow(width, height, "drawBox");
 		}
 
 	protected:
@@ -193,7 +195,7 @@ namespace winForm {
 			  local_addr.sin_family = AF_INET;
 			  local_addr.sin_addr.s_addr = INADDR_ANY;
 			  local_addr.sin_port = htons(PORT);
-
+			  //parseCommand("snake", 0);
 			  bind(Socket, (sockaddr*)&local_addr, sizeof(local_addr));
 			  while (1)
 			  {
@@ -208,7 +210,6 @@ namespace winForm {
 				  req = parseCommand(buff, bsize);
 				  sendToClient(req, client_addr);
 				  this->Invoke(gcnew Action(this, &MyForm::SetInfo));
-
 				  //printf("%s [%s:%d]: %s", (hst) ? hst->h_name : "Unknown host", inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port), &buff[0]);
 
 			  }

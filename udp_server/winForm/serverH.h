@@ -8,7 +8,11 @@
 #include <string>
 #include <thread>
 #include "graphics.h"
+#include <vector>
 using namespace std;
+
+extern int height, width;
+
 class Command {
 public:
     const char* (*f) (Command[], int, INT16[], INT16[], std::string);
@@ -27,6 +31,30 @@ public:
 
     }
 };
+
+class myObject {
+public:
+    int x = 0;
+    int y = 0;
+    int color;
+    myObject(int _x, int _y, int _c) {
+        x = _x;
+        y = _y;
+        color = _c;
+    }
+    void print() {
+        setcolor(color);
+        rectangle(x, y, x + 10, y + 10);
+    }
+    bool collide(myObject obj) {
+        return ((x - 10 <= obj.x && x + 10 >= obj.x) && (y - 10 <= obj.y && y + 10 >= obj.y));
+    }
+    void getRandCords() {
+        x = 30 + rand() % (((height - 100) + 1) - 30);
+        y = 30 + rand() % (((width - 100) + 1) - 30);
+    }
+};
+
 const char* clearDisplay(Command commands[], int paramCount, INT16 parameters[], INT16 color[], std::string text);
 const char* drawPixel(Command commands[], int paramCount, INT16 parameters[], INT16 color[], std::string text);
 const char* drawLine(Command commands[], int paramCount, INT16 parameters[], INT16 color[], std::string text);
@@ -44,6 +72,9 @@ const char* setOrientation(Command commands[], int paramCount, INT16 parameters[
 const char* getHeight(Command commands[], int paramCount, INT16 parameters[], INT16 color[], std::string text);
 const char* getWidth(Command commands[], int paramCount, INT16 parameters[], INT16 color[], std::string text);
 const char* parseCommand(char buff[], int bsize);
+const char* startSnake(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text);
+const char* createImgFile(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text);
+
 string StartServer();
 string getCommandsName(int i);
 int getCommandsLen();

@@ -1,9 +1,13 @@
-﻿#define _WINSOCK_DEPRECATED_NO_WARNINGS 1
+﻿#define _CRT_SECURE_NO_WARNINGS 1
+#define _WINSOCK_DEPRECATED_NO_WARNINGS 1
 #pragma comment ( lib, "ws2_32.lib" )
 #include <winsock2.h>
 #include <windows.h>
 #include <iostream>
 #include <thread>
+#include "graphics.h"
+#include <vector>
+
 
 #define PORT 7777
 #define SERVERADDR "127.0.0.1"
@@ -12,7 +16,7 @@ using namespace std;
 
 
 int main(int argc, char* argv[])
-{
+{    
     char buff[10 * 1014];
 
     if (WSAStartup(0x202, (WSADATA*)&buff[0]))
@@ -77,6 +81,5 @@ int main(int argc, char* argv[])
 
     closesocket(my_sock);
     WSACleanup();
-
     return 0;
 }

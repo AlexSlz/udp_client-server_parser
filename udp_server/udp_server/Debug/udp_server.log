@@ -1,7 +1,8 @@
 ﻿  udp_server.cpp
 E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\udp_server\server.h(13,30): warning C4018: <: несоответствие типов со знаком и без знака
 E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\udp_server\udp_server.cpp(14,26): warning C4018: <: несоответствие типов со знаком и без знака
-E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\udp_server\udp_server.cpp(88,30): warning C4018: <: несоответствие типов со знаком и без знака
-E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\udp_server\udp_server.cpp(117,26): warning C4018: <: несоответствие типов со знаком и без знака
-E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\udp_server\udp_server.cpp(164,30): warning C4018: <: несоответствие типов со знаком и без знака
+E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\udp_server\udp_server.cpp(89,30): warning C4018: <: несоответствие типов со знаком и без знака
+E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\udp_server\udp_server.cpp(118,26): warning C4018: <: несоответствие типов со знаком и без знака
+E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\udp_server\udp_server.cpp(162,26): warning C4018: <: несоответствие типов со знаком и без знака
+E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\udp_server\udp_server.cpp(169,30): warning C4018: <: несоответствие типов со знаком и без знака
   udp_server.vcxproj -> E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\Debug\udp_server.exe

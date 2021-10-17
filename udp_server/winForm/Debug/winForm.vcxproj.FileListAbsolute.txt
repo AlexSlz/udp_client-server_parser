@@ -1,4 +1,4 @@
-E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\Debug\winForm.vcxproj.AssemblyReference.cache
 E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\Debug\winForm.vcxproj.SuggestedBindingRedirects.cache
 E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\Debug\winForm.MyForm.resources
 E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\Debug\winForm.vcxproj.GenerateResource.cache
+E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\Debug\winForm.vcxproj.AssemblyReference.cache
