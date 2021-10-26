@@ -1,15 +1,19 @@
-﻿  func.cpp
+﻿  MyForm.cpp
 E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\serverH.h(24,30): warning C4018: <: несоответствие типов со знаком и без знака
-E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\func.cpp(26,26): warning C4018: <: несоответствие типов со знаком и без знака
-E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\func.cpp(117,9): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\func.cpp(161,13): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\func.cpp(256,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\MyForm.h(32,25): warning C4018: <: несоответствие типов со знаком и без знака
+  func.cpp
+E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\serverH.h(24,30): warning C4018: <: несоответствие типов со знаком и без знака
+E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\func.cpp(31,26): warning C4018: <: несоответствие типов со знаком и без знака
+E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\func.cpp(122,9): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\func.cpp(166,13): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\func.cpp(261,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\func.cpp(280,26): warning C4018: <: несоответствие типов со знаком и без знака
-E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\func.cpp(324,26): warning C4018: <: несоответствие типов со знаком и без знака
-E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\func.cpp(327,30): warning C4018: <: несоответствие типов со знаком и без знака
-E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\func.cpp(257): warning C4172: возвращение адреса локальной или временной переменной : temp
+E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\func.cpp(266,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\func.cpp(285,26): warning C4018: <: несоответствие типов со знаком и без знака
+E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\func.cpp(329,26): warning C4018: <: несоответствие типов со знаком и без знака
+E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\func.cpp(332,30): warning C4018: <: несоответствие типов со знаком и без знака
+  Создание кода...
 E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\func.cpp(262): warning C4172: возвращение адреса локальной или временной переменной : temp
+E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\func.cpp(267): warning C4172: возвращение адреса локальной или временной переменной : temp
 E:\Lab 2.0\ksks\udp_client-server_parser\udp_server\winForm\serverH.h(22): warning C4793: Command::Command: функция скомпилирована как машинная:
   	varargs не поддерживаются в /clr
   MyForm.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка

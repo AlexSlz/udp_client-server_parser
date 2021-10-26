@@ -75,6 +75,8 @@ const char* parseCommand(char buff[], int bsize);
 const char* startSnake(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text);
 const char* createImgFile(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text);
 
+const char* pinFunc(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text);
+
 string StartServer();
 string getCommandsName(int i);
 int getCommandsLen();

@@ -1,6 +1,7 @@
 #include "serverH.h"
 
 Command commands[] = {
+    Command(pinFunc, 0, 1, "pin"),
     Command(clearDisplay, 0, 2, "clear", "display"),
     Command(drawPixel, 2, 2, "draw", "pixel"),
     Command(drawLine, 4, 2, "draw", "line"),
@@ -20,6 +21,10 @@ Command commands[] = {
     Command(startSnake, 0, 1, "snake"),
     Command(createImgFile, 0, 1, "file")
 };
+
+const char* pinFunc(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text) {
+    return "pin command.";
+}
 
 string getCommandsName(int i) {
     string temp = "";

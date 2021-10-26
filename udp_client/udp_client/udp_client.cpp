@@ -1,5 +1,4 @@
-﻿#define _CRT_SECURE_NO_WARNINGS 1
-#define _WINSOCK_DEPRECATED_NO_WARNINGS 1
+﻿#define _WINSOCK_DEPRECATED_NO_WARNINGS 1
 #pragma comment ( lib, "ws2_32.lib" )
 #include <winsock2.h>
 #include <windows.h>
