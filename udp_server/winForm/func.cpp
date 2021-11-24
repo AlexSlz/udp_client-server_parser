@@ -2,6 +2,20 @@
 
 Command commands[] = {
     Command(pinFunc, 0, 1, "pin"),
+    //Command(arduinoClear, 0, 2, "Adraw", "clear"),
+    //Command(aruinoDrawPixFunc, 0, 2, "Adraw", "pixel"),
+    //Command(aruinoGameStartFunc, 0, 1, "arduinoSnake"),
+    //Command(aruinoGameStopFunc, 0, 2, "arduinoSnake", "stop"),
+    //Command(snakeLeftFunc, 0, 2, "snake", "left"),
+    //Command(snakeRightFunc, 0, 2, "snake", "right"),
+    //Command(snakeUpFunc, 0, 2, "snake", "up"),
+    //Command(snakeDownFunc, 0, 2, "snake", "down"),
+    Command(tempFunc, 0, 1, "textGame"),
+    Command(tempFunc, 0, 2, "choose", "ROCK"),
+    Command(tempFunc, 0, 2, "choose", "PAPER"),
+    Command(tempFunc, 0, 2, "choose", "SCISSORS"),
+    Command(AdrawChar, 0, 1, "drawChar"),
+    Command(AdrawText, 0, 1, "drawText"),
     Command(clearDisplay, 0, 2, "clear", "display"),
     Command(drawPixel, 2, 2, "draw", "pixel"),
     Command(drawLine, 4, 2, "draw", "line"),
@@ -22,8 +36,45 @@ Command commands[] = {
     Command(createImgFile, 0, 1, "file")
 };
 
+const char* tempFunc(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text) {
+    return "command...";
+}
+
+const char* animTextFunc(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text) {
+    return "Anim command.";
+}
 const char* pinFunc(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text) {
     return "pin command.";
+}
+const char* aruinoDrawPixFunc(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text) {
+    return "Arduino Draw Pixel.";
+}
+const char* arduinoClear(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text) {
+    return "Arduino Clear Display.";
+}
+const char* aruinoGameStartFunc(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text) {
+    return "Start Game.";
+}
+const char* aruinoGameStopFunc(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text) {
+    return "Stop Game.";
+}
+const char* snakeLeftFunc(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text) {
+    return "Snake Left command.";
+}
+const char* snakeRightFunc(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text) {
+    return "Snake Right command.";
+}
+const char* snakeUpFunc(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text) {
+    return "Snake Up command.";
+}
+const char* snakeDownFunc(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text) {
+    return "Snake Down command.";
+}
+const char* AdrawChar(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text) {
+    return "Arduino Char command.";
+}
+const char* AdrawText(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text) {
+    return "Arduino Text command.";
 }
 
 string getCommandsName(int i) {

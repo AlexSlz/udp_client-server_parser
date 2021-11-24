@@ -77,29 +77,24 @@ const char* createImgFile(Command commands[], int paramCount, INT16 parameters[]
 
 const char* pinFunc(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text);
 
+const char* aruinoDrawPixFunc(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text);
+const char* arduinoClear(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text);
+
+const char* aruinoGameStartFunc(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text);
+const char* aruinoGameStopFunc(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text);
+
+const char* snakeLeftFunc(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text);
+const char* snakeRightFunc(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text);
+const char* snakeUpFunc(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text);
+const char* snakeDownFunc(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text);
+
+const char* AdrawChar(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text);
+const char* AdrawText(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text);
+
+const char* animTextFunc(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text);
+
+const char* tempFunc(Command commands[], int paramCount, INT16 parameters[], INT16 color[], string text);
+
 string StartServer();
 string getCommandsName(int i);
 int getCommandsLen();
-/*
-Command commands[] = {
-    Command(clearDisplay, 0, 2, "clear", "display"),
-    Command(drawPixel, 2, 2, "draw", "pixel"),
-    Command(drawLine, 4, 2, "draw", "line"),
-    Command(drawRect, 4, 2, "draw", "rectangle"),
-    Command(fillRect, 4, 2, "fill", "rectangle"),
-    Command(drawEllipse, 4, 2, "draw", "ellipse"),
-    Command(fillEllipse, 4, 2, "fill", "ellipse"),
-    Command(drawCircle, 3, 2, "draw", "circle"),
-    Command(fillCircle, 3, 2, "fill", "circle"),
-    Command(drawRoundRect, 5, 3, "draw", "rounded", "rectangle"),
-    Command(fillRoundRect, 5, 3, "fill", "rounded", "rectangle"),
-    Command(drawText, 4, 2, "draw", "text"),
-    Command(drawImage, 4, 2, "draw", "image"),
-    Command(setOrientation, 1, 2, "set", "orientation"),
-    Command(getWidth, 0, 2, "get", "width"),
-    Command(getHeight, 0, 2, "get", "height"),
-
-    Command(getHelp, 0, 1, "help"),
-    Command(clearConsole, 0, 1, "cls")
-};
-*/

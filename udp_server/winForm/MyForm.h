@@ -4,7 +4,7 @@
 #using <mscorlib.dll>
 
 
-int height = 500, width = 500;
+int height = 300, width = 300;
 
 
 namespace winForm {
@@ -37,7 +37,8 @@ namespace winForm {
 			if(a.GetPortNames())
 				comboBox1->Items->AddRange(a.GetPortNames());
 			//myServerThread = gcnew Thread(gcnew ThreadStart(this, &MyForm::ThreadStartServer));
-			initwindow(width, height, "drawBox");
+			//initwindow(width, height, "drawBox");
+
 		}
 
 	protected:
@@ -302,7 +303,7 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, Sys
 private: System::Void serialPort1_DataReceived(System::Object^ sender, System::IO::Ports::SerialDataReceivedEventArgs^ e) {
 	arData = serialPort1->ReadExisting();
 	char* str = (char*)Marshal::StringToHGlobalAnsi(arData).ToPointer();
-	arData = gcnew String(parseCommand(str, 0));
+	//arData = gcnew String(parseCommand(str, 0));
 	this->Invoke(gcnew Action(this, &MyForm::SetArdInfo));
 }
 	   void SetArdInfo() {
