@@ -1,7 +1,7 @@
-/*document.getElementById('btn').addEventListener('click', () => {
+document.getElementById('btn').addEventListener('click', () => {
   sendMessage('modal')
 })
-*/
+
 document.getElementById('connect').addEventListener('click', () => {
   sendMessage('start')
 })

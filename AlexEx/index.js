@@ -1,1 +1,114 @@
-const mainElement=document.createElement("div");let port,readBool;async function connectSerial(){readBool=!0;try{port=await navigator.serial.requestPort(),await port.open({baudRate:9600}),console.log("conn...")}catch(e){console.log("port: "+e)}null!=port&&readPort(),readSite()}async function closeSerial(){readBool=!1,reader||reader.cancel(),console.log("serial closed")}mainElement.classList.add("mainElement"),mainElement.innerHTML='<h1 id="text">Alex Seleznev:)</h1>',document.body.appendChild(mainElement),chrome.runtime.onMessage.addListener(e=>{"modal"===e&&(mainElement.classList.contains("hide")?mainElement.classList.remove("hide"):mainElement.classList.add("hide")),"start"===e&&(navigator.serial?!mainElement.classList.contains("hide")&&document.getElementById("text").textContent.includes("A")&&document.getElementById("text").textContent.includes("e")&&document.getElementById("text").textContent.includes("S")&&connectSerial():alert("Web Serial API not supported :("))});let reader,dataOldLen=0;async function readSite(){let e=setInterval(()=>{try{let t=document.querySelector(".code_panel__serial__content__text").innerHTML.split("\r\n"),n=t[t.length-2];t.length-1!=dataOldLen&&null!=n&&(dataOldLen=t.length-1,sendPortMsg(n))}catch(t){console.log("element not found"),clearInterval(e),closeSerial()}},1e3)}async function sendPortMsg(e){const t=new TextEncoderStream,n=t.readable.pipeTo(port.writable),a=t.writable.getWriter();document.getElementById("text").textContent.contains("S")&&await a.write(e+"\n"),a.close(),await n}async function readPort(){const e=new TextDecoderStream,t=port.readable.pipeTo(e.writable);for(;readBool;){let t="";reader=e.readable.getReader();let n=0;for(;readBool;){let{value:e,done:a}=await reader.read();if(e&&e.includes("a")&&n<14&&(t+=e,n++),e&&e.indexOf("\n")>-1&&(a=!0),a){console.log("Message from Port: "+t),inputSend(t),reader.releaseLock();break}}}await t.catch(e=>{console.log(e)})}async function inputSend(e){try{document.querySelector(".code_panel__serial__input").value=e,document.querySelector(".js-code_panel__serial__send").click()}catch(e){console.log("errod... addElement: "+e)}}
+const mainElement = document.createElement('div')
+mainElement.classList.add('mainElement', 'hide')
+mainElement.innerHTML = '<h1 id="text">Alex:)</h1>'
+document.body.appendChild(mainElement)
+
+const log = document.getElementById('text')
+let port
+let readBool
+
+chrome.runtime.onMessage.addListener((msgObj) => {
+  if (msgObj === 'modal') {
+    if (mainElement.classList.contains('hide'))
+      mainElement.classList.remove('hide')
+    else mainElement.classList.add('hide')
+  }
+  if (msgObj === 'start') {
+    if (navigator.serial) {
+      connectSerial()
+    } else {
+      alert('Web Serial API not supported :(')
+    }
+  }
+})
+
+async function connectSerial() {
+  readBool = true
+  try {
+    port = await navigator.serial.requestPort()
+    await port.open({ baudRate: 9600 })
+    console.log('conn...')
+  } catch (error) {
+    console.log('port: ' + error)
+  }
+  if (port != undefined) readPort()
+  readSite()
+}
+
+async function closeSerial() {
+  readBool = false
+  if (!reader) reader.cancel()
+  //await port.close()
+  console.log('serial closed')
+}
+
+let dataOldLen = 0
+
+async function readSite() {
+  let myInt = setInterval(() => {
+    try {
+      let dataList = document
+        .querySelector('.code_panel__serial__content__text')
+        .innerHTML.split('\r\n')
+      let data = dataList[dataList.length - 2]
+      if (dataList.length - 1 != dataOldLen && data != undefined) {
+        dataOldLen = dataList.length - 1
+        sendPortMsg(data)
+        //document.querySelector('.js-code_panel__serial__clear').click()
+      }
+    } catch (error) {
+      console.log('element not found')
+      clearInterval(myInt)
+      closeSerial()
+    }
+  }, 1000)
+}
+
+async function sendPortMsg(msg) {
+  const textEncoder = new TextEncoderStream()
+  const writableStreamClosed = textEncoder.readable.pipeTo(port.writable)
+
+  const writer = textEncoder.writable.getWriter()
+
+  await writer.write(msg + '\n')
+  writer.close()
+  await writableStreamClosed
+}
+let reader
+async function readPort() {
+  const textDecoder = new TextDecoderStream()
+  const readableStreamClosed = port.readable.pipeTo(textDecoder.writable)
+
+  while (readBool) {
+    let msg = ''
+    reader = textDecoder.readable.getReader()
+    while (readBool) {
+      let { value, done } = await reader.read()
+      if (value) {
+        msg += value
+      }
+      if (value && value.indexOf('\n') > -1) {
+        done = true
+      }
+      if (done) {
+        log.innerHTML = '<h1>Message from Port</h1> <hr/>' + msg
+        inputSend(msg)
+        reader.releaseLock()
+        break
+      }
+    }
+  }
+  await readableStreamClosed.catch((error) => {
+    console.log(error)
+  })
+}
+
+async function inputSend(msg) {
+  try {
+    let input = document.querySelector('.code_panel__serial__input')
+    input.value = msg
+    document.querySelector('.js-code_panel__serial__send').click()
+  } catch (error) {
+    console.log('errod... addElement: ' + error)
+  }
+}
